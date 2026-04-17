@@ -1,4 +1,4 @@
-To evaluate the keyword search performance of CLRZ with erasure coding:
+## To evaluate the keyword search performance of CLRZ with erasure coding:
 
 run `export CLASSPATH=$CLASSPATH:/Users/$USER/APOSSE/Clusion/target:/Users/$USER/APOSSE/Clusion/target/test-classes:/Users/$USER/APOSSE/Clusion/target/classes:/Users/$USER/APOSSE/Clusion/target/Clusion-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
