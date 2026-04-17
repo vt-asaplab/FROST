@@ -351,11 +351,12 @@ class dp_sse_bench:
     def benchmarking_kernel_simple(self, simulated_index, simulated_tokens, serialized_map_index, serialized_map_tokens, num_core_list, time_per_eval):
         computation_graph = self.build_computation_graph_bench( simulated_index, simulated_tokens, serialized_map_index, serialized_map_tokens )
         tm = [round( len(computation_graph) / num_core * time_per_eval / 60, 2) for num_core in num_core_list ]
+        print(f"Search query size: {len(computation_graph) * (4 + (self.dp_sse_pt.smax + 3) * 2 * 56) / 1048576} (MB)")
         return len(computation_graph), [
             "{} core, time: {} mins".format(num_core_list[i], t) for i, t in enumerate(tm) 
         ]
 
-
+    
     # Created and store all index-related parameters including simulate_index (pt_index_bench_rearrange), and serialized_index, serialized_map_index
     # Input:
     #   N/A 
