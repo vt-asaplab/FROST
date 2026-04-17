@@ -1,3 +1,9 @@
+export CLASSPATH=$CLASSPATH:/Users/$USER/CLRZ/target:/Users/$USER/CLRZ/target/test-classes:/Users/$USER/CLRZ/target/Clusion-1.0-SNAPSHOT-jar-with-dependencies.jar
+
+export JAVA_HOME=/opt/homebrew/Cellar/openjdk/25.0.1 
+
+java -Xmx32g org.crypto.sse.TestLocalRR2Lev
+
 # The Clusion Library
 
 Clusion is an easy to use software library for searchable symmetric encryption
