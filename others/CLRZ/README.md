@@ -1,8 +1,10 @@
-export CLASSPATH=$CLASSPATH:/Users/$USER/CLRZ/target:/Users/$USER/CLRZ/target/test-classes:/Users/$USER/CLRZ/target/classes:/Users/$USER/CLRZ/target/Clusion-1.0-SNAPSHOT-jar-with-dependencies.jar
+## To evaluate the keyword search performance of CLRZ: 
 
-export JAVA_HOME=/opt/homebrew/Cellar/openjdk/25.0.1 
+run `export CLASSPATH=$CLASSPATH:/Users/$USER/CLRZ/target:/Users/$USER/CLRZ/target/test-classes:/Users/$USER/CLRZ/target/classes:/Users/$USER/CLRZ/target/Clusion-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
-java -Xmx32g org.crypto.sse.TestLocalRR2Lev
+run `export JAVA_HOME=/opt/homebrew/Cellar/openjdk/25.0.1`
+
+run `java -Xmx32g org.crypto.sse.TestLocalRR2Lev`
 
 # The Clusion Library
 
