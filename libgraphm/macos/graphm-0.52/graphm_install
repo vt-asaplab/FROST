@@ -1,0 +1,19 @@
+#!/bin/sh
+# GraphM package compilation.
+if [ $# -eq 0 ]
+then
+echo "LP algorithm is not supported (default)"
+export LDFLAGS="-lgsl -lgslcblas";
+export CFLAGS="-Wno-deprecated -O3 -fPIC -I/opt/homebrew/Cellar/gsl/2.8/include/ -L/opt/homebrew/Cellar/gsl/2.8/lib/"
+make -e
+exit 0
+fi
+
+if [ $1=="-LP" ]
+then
+echo "LP algorithm is supported"
+export LDFLAGS="-lgsl -lgslcblas -lglpk " 
+export CFLAGS="-Wno-deprecated -O3 -fPIC -D LP_INCLUDE -I/opt/homebrew/Cellar/gsl/2.8/include/ -L/opt/homebrew/Cellar/gsl/2.8/lib/"
+make -e
+exit 0
+fi
