@@ -46,7 +46,7 @@ echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:$PREFIX/lib" >> /home/$USER/.bash
 sudo apt-get install python3-pip
 pip3 install numpy scipy matplotlib scikit-learn tqdm pytrends nltk
 
-# Note that if the above setup process has the error: externally-managed-environment
+# Note that if the above setup process is stopped by the error: externally-managed-environment
 # Then, do this (replace 3.12 with the Python version in the system): 
 # sudo mv /usr/lib/python3.12/EXTERNALLY-MANAGED /usr/lib/python3.12/EXTERNALLY-MANAGED.old
 # Followed by running again: 
