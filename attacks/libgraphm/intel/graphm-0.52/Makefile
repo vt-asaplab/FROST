@@ -1,6 +1,6 @@
 CXX ?= g++
 CFLAGS = -Wno-deprecated -O3 -fPIC
-#LDFLAGS= -lgsl -lgslcblas
+LDFLAGS= -lgsl -lgslcblas
 SHVER = 1
 all: ./bin/graphm
 ./bin/graphm: ./obj/algorithm_ca.o ./obj/algorithm_path.o ./obj/algorithm_ext.o ./obj/algorithm_fsol.o  ./obj/algorithm_iden.o ./obj/algorithm_lp.o ./obj/algorithm.o ./obj/algorithm_path.o ./obj/algorithm_qcv.o ./obj/algorithm_rand.o ./obj/algorithm_rank.o ./obj/algorithm_umeyama.o ./obj/algorithm_unif.o ./obj/experiment.o ./obj/graph.o ./obj/hungarian.o  ./obj/rpc.o main.cpp
