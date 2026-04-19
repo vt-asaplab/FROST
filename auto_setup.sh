@@ -41,3 +41,9 @@ cd ..
 # Set library path
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PREFIX/lib/
 echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:$PREFIX/lib" >> /home/$USER/.bashrc
+
+# Install Python libraries
+pip3 install numpy scipy matplotlib scikit-learn tqdm pytrends nltk
+
+# Install libgsl for building graphm library
+sudo apt-get install libgsl-dev
