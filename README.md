@@ -10,7 +10,7 @@ This is our full implementation for our FROST.
 
 2. [NTL v11.6.0](http://www.shoup.net/ntl/download.html)
 
-You can run the script file **auto_setup.sh** to automatically install the required libraries. 
+You can run the script file **auto_setup.sh** (need root permission) to automatically install the required libraries. 
 ```
 ./auto_setup.sh
 ```
