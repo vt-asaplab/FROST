@@ -36,6 +36,7 @@ This is going to create an executable file named ``main`` in the **frost** folde
 
 - Go to the **frost** directory and launch the executable file `main`:
 
+```
 cd frost
 ./main [-d <Path to dataset>] [-m <Bloom_filter_size>] [-n <Number_of_documents>]
 ```
