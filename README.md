@@ -38,7 +38,7 @@ This is going to create an executable file named ``main`` in the **frost** folde
 
 ```
 cd frost
-./main [-d <Path to dataset>] [-m <Bloom_filter_size>] [-n <Number_of_documents>]
+./main [-d <Path_to_dataset>] [-m <Bloom_filter_size>] [-n <Number_of_documents>]
 ```
 
 For example:
