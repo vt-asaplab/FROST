@@ -34,6 +34,18 @@ This is going to create an executable file named ``main`` in the **frost** folde
 
 ## Testing
 
-- Go to the **frost** directory and run the executable file `main`.
+- Go to the **frost** directory and launch the executable file `main`:
+
+cd frost
+./main [-d <Path to dataset>] [-m <Bloom_filter_size>] [-n <Number_of_documents>]
+```
+
+For example:
+```
+./main -d ./maildir 
+```
+
+The default parameters: Bloom_filter_size is 2912, and Number_of_documents is 1024. 
+
 - When prompted, enter the path to the dataset directory (e.g., `./maildir`).
 - Wait for the initialization process to complete, then enter a keyword to perform a search.
