@@ -22,7 +22,7 @@ You can run the script file **auto_setup.sh** (user needs root permission) to au
 ```
 python3 -m wikiextractor.WikiExtractor enwiki-latest-pages-articles.xml.bz2 --json -o extracted
 ```
-Finally, execute the python script in ``dataset/extract_random.py`` to randomly sample 500K documents, excluding the empty ones without any keywords. 
+Finally, execute the python script in ``scripts/extract_random.py`` to randomly sample 500K documents, excluding the empty ones without any keywords. 
 
 # Build & Compile
 
