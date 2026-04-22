@@ -4,7 +4,7 @@ import random
 from collections import defaultdict
 
 input_root = 'extracted'    
-output_dir = 'random_500K'
+output_dir = 'wiki'
 target_count = 524288  
 
 if not os.path.exists(output_dir):
