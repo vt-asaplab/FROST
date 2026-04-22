@@ -46,7 +46,7 @@ For example:
 ./main -d ./maildir 
 ```
 
-By default, it starts process with default parameters Bloom_filter_size = 2912, and Number_of_documents = 1024. 
+By default, it starts the process with default parameters Bloom_filter_size = 2912, and Number_of_documents = 1024. 
 
-- Wait for the initialization process to complete, then enter a keyword to perform a search.
+- Wait for the initialization process to complete, then enter a keyword to perform a search (e.g., "university").
 - It outputs processing latency and bandwidth overhead of keyword search for the true positive rate TPR = 0.95 w.r.t various false positive rates FPR = {0.025, 0.05, 0.1, 0.15, 0.2}. 
