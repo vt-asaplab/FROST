@@ -28,7 +28,7 @@ Finally, execute the python script in ``scripts/extract_random.py`` to randomly 
 
 Go to the folder **frost** then execute:
 ``` 
-make
+make -j8
 ```
 This is going to create an executable file named ``main`` in the **frost** folder.
 
