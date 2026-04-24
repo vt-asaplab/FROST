@@ -80,7 +80,7 @@ public class TestLocalRR2Lev {
 
 			double bw = (result.size() * 4 + 16) / (1024.0 * 1024.0);
 			
-			System.out.printf("Bandwidth cost: %.2f MB%n", bw);
+			System.out.println("Bandwidth cost: " + bw + " MB");
 		}
 	}
 }
