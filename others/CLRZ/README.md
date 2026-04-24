@@ -1,6 +1,6 @@
 ## To evaluate the keyword search performance of CLRZ: 
 
-Following the build instructions below, then execute:
+Follow the build instructions below, then execute:
 
 run `export CLASSPATH=$CLASSPATH:/Users/$USER/CLRZ/target:/Users/$USER/CLRZ/target/test-classes:/Users/$USER/CLRZ/target/classes:/Users/$USER/CLRZ/target/Clusion-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
