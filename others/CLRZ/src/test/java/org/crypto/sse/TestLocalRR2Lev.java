@@ -78,7 +78,7 @@ public class TestLocalRR2Lev {
 
 			System.out.println("Execution time: " + estimatedTime);
 
-			double bw = result.size() * 4 + 16;
+			long bw = result.size() * 4 + 16;
 			
 			System.out.println("Bandwidth cost: " + bw + " B");
 		}
