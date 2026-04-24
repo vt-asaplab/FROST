@@ -15,7 +15,7 @@ Make sure that you compile the graphm binary ``graphm-0.52.tar``. The code to th
 - For the Frequency, Graph Matching, SAP, and IHOP attacks, the attack accuracy can be evaluated by going into **Freq_GraphM_SAP_IHOP** folder then execute:
 
 ```
-python3 debug.py [--nqr <number_of_queries>] [--nkw <number_of_keywords>] [--tpr <true_positive_rate>] [--fpr <false_positive_rate>] [--dataset <dataset>] [--att <attack_type>] [--defense <defense_type>]
+python3 debug.py [--nqr <number_of_queries>] [--nkw <number_of_keywords>] [--tpr <true_positive_rate>] [--fpr <false_positive_rate>] [--dataset <dataset>] [--att <attack_type>] [--defense <defense_mechanism>]
 ```
 
 For example: 
@@ -24,13 +24,13 @@ For example:
 python3 debug.py 
 ```
 
-It executes with default parameters: nqr = 1,000, nkw = 1,000, tpr = 0.95, fpr = 0.1, dataset = Enron-full, att = freq (Frequency attack), and defense = frost. 
+It executes with default parameters: number_of_queries = 1,000, number_of_keywords = 1,000, true_positive_rate = 0.95, false_positive_rate = 0.1, dataset = Enron-full, attack_type = freq (Frequency attack), and defense_mechanism = frost. 
 
 The dataset can be "**Enron-full**", "**lucene**", and "**wiki_sec**" (see available datasets in the **datasets_pro** folder). The attack can be "**freq**", "**ihop**", "**sap**", and "**graphm**". We can change the defense mechanism to "**clrz**", "**osse**", "**frost**", and "**none**" (no defense) to evaluate their effectiveness against different statistical leakage-abuse attacks.
 
 - For the Jigsaw attack, the attack accuracy can be evaluated by going into **Jigsaw** folder then execute:
 ```
-python3 test_against_countermeasure.py [--nqrpw <number_of_queries_per_week>] [--nw <number_of_weeks>] [--nkw <number_of_keywords>] [--tpr <true_positive_rate>] [--fpr <false_positive_rate>] [--dataset <dataset>] [--defense <defense_type>]
+python3 test_against_countermeasure.py [--nqrpw <number_of_queries_per_week>] [--nw <number_of_weeks>] [--nkw <number_of_keywords>] [--tpr <true_positive_rate>] [--fpr <false_positive_rate>] [--dataset <dataset>] [--defense <defense_mechanism>]
 ```
 
 For example:
@@ -38,6 +38,6 @@ For example:
 python3 test_against_countermeasure.py
 ```
 
-It executes with default parameters: nqrpw = 500, nw = 50 (in total of 25,000 queries), nkw = 1,000, tpr = 0.95, fpr = 0.1, dataset = enron, and defense = frost. 
+It executes with default parameters: number_of_queries_per_week = 500, number_of_weeks = 50 (in total of 25,000 queries), number_of_keywords = 1,000, true_positive_rate = 0.95, false_positive_rate = 0.1, dataset = enron, and defense_mechanism = frost. 
 
 The dataset can be "**enron**", "**lucene**", and "**wiki**". We can change the defense mechanism to "**clrz**", "**osse**", "**frost**", and "**none**" (no defense) to evaluate their effectiveness against different pattern leakage attacks.
