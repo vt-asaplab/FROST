@@ -70,12 +70,16 @@ public class TestLocalRR2Lev {
 
 			long startTime = System.nanoTime();
 
-			System.out.println("Final Result: " + twolev.query(token, twolev.getDictionary(), twolev.getArray()));
+			List<String> result = twolev.query(token, twolev.getDictionary(), twolev.getArray());
+			
+			System.out.println("Final Result: " + result);
 			
 			long estimatedTime = System.nanoTime() - startTime;
 
 			System.out.println("Execution time: " + estimatedTime);
-		}
 
+			double bw = (result.size() * 4 + 16) / (1024.0 * 1024.0);
+			System.out.printf("Bandwidth cost: %.2f MB%n", bw);
+		}
 	}
 }
