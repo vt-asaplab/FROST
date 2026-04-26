@@ -1,8 +1,8 @@
 # OSSE
 - Installation:
-```
-pip3 install 
-```
+
+See **OSSE/README.md** 
+
 - To evaluate the metrics of keyword search for OSSE, go to the **OSSE/code** directory and execute:
 
 ```
