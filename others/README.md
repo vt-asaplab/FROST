@@ -16,4 +16,4 @@ By default, it starts the process with default parameters number_of_documents = 
 
 # CLRZ
 
-Follow either **APOSSE** or **Clusion** 
+Follow either **APOSSE** or **CLRZ** 
