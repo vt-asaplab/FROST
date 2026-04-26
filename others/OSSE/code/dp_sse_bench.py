@@ -5,16 +5,17 @@ import random
 import sys 
 from collections import defaultdict
 import os 
+import argparse
 
 class dp_sse_bench:
-    def __init__(self):
+    def __init__(self, db_size):
         self.db_fn = "../db/enron_db_no_stopwords_size_limit.json"
         self.db_inverted_fn = "../db/enron_inverted_index_ordered.json"
         self.pt_index_fn = "../db/plaintext_index.json"
         self.pt_index_bench_fn = "../db/plaintext_index_bench_rearrange.json"
         self.serialized_index_bench_fn = "../db/serialized_index.json"
         self.serialized_index_map_bench_fn = "../db/serialized_index_map.json"
-        self.dp_sse_pt = dp_sse.dp_sse_plaintext()
+        self.dp_sse_pt = dp_sse.dp_sse_plaintext(db_size)
         
         self.db = []
         self.keyword_univ = []
@@ -399,19 +400,29 @@ class dp_sse_bench:
     
 
 if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser(description="Executing Freq/GraphM/SAP/IHOP Attack")
+
+    parser.add_argument("-n", type=int, default=1024, help="Number of documents")
+    parser.add_argument("-t", type=float, default=0.95, help="True positive rate")
+    parser.add_argument("-f", type=float, default=0.1, help="False positive rate")
+
+    args = parser.parse_args()
     
     # num_core_list = [4, 8, 16, 32, 64, 128, 160]
     num_core_list = [8]
     time_per_eval = 1.25
 
-    dp_sse_bh = dp_sse_bench()
+    dp_sse_bh = dp_sse_bench(args.n)
     dp_sse_bh.create_and_store_index_bench()
     #load index 
     simulated_index, serialized_index, serialized_map_index = dp_sse_bh.load_index_bench( )
     
     keyword = "test"
-    tp, fp = 0.95, 0.1
-    #create tokens
+    # tp, fp = 0.95, 0.1
+    tp, fp = args.t, args.f
+    
+    # create tokens
     all_tokens = dp_sse_bh.gen_tokens_bench(keyword, tp, fp)
     print(len( all_tokens ))
     rearranged_tokens = dp_sse_bh.rearrange_all_tokens_bench( all_tokens )
