@@ -1,7 +1,7 @@
 # OSSE
 - Installation: see **OSSE/README.md** 
 
-- To evaluate the metrics of keyword search for OSSE, go to the **OSSE/code** directory and execute:
+- To evaluate the keyword search metrics for OSSE, navigate to the **OSSE/code** directory and run the following command:
 
 ```
 python3 dp_sse_bench.py [-n <number_of_documents>] [-t <true_positive_rate>] [-f <false_positive_rate>]
