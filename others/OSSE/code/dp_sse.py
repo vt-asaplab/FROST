@@ -12,10 +12,12 @@ import ipe_wrap
 
 class dp_sse_plaintext: 
     # Init parameters
-    def __init__(self):
+    def __init__(self, db_size):
         # init parameters from config.py
-        self.db_size = config.db_size
-        self.new_db_size = config.new_db_size # when size_lmt = 300
+        # self.db_size = config.db_size
+        # self.new_db_size = config.new_db_size # when size_lmt = 300
+        self.db_size = db_size
+        self.new_db_size = db_size 
         self.cmax = config.cmax
         self.smax = config.smax
         self.placeholder_in_index = config.placeholder_in_index
