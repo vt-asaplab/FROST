@@ -14,7 +14,7 @@ Make sure that you compile the graphm binary ``graphm-0.52.tar``. The code to th
 
 # Freq/GraphM/SAP/IHOP Attack
 
-- For the Frequency, Graph Matching, SAP, and IHOP attacks, the attack accuracy can be evaluated by going into **Freq_GraphM_SAP_IHOP** folder then execute:
+For the Frequency, Graph Matching, SAP, and IHOP attacks, the attack accuracy can be evaluated by going into **Freq_GraphM_SAP_IHOP** folder then execute:
 
 ```
 python3 debug.py [--nqr <number_of_queries>] [--nkw <number_of_keywords>] [--tpr <true_positive_rate>] [--fpr <false_positive_rate>] [--dataset <dataset>] [--att <attack_type>] [--defense <defense_mechanism>]
@@ -32,7 +32,7 @@ The dataset can be "**enron-full**", "**lucene**", and "**wiki_sec**" (see avail
 
 # Jigsaw Attack
 
-- For the Jigsaw attack, the attack accuracy can be evaluated by going into **Jigsaw** folder then execute:
+For the Jigsaw attack, the attack accuracy can be evaluated by going into **Jigsaw** folder then execute:
 ```
 python3 test_against_countermeasure.py [--nqrpw <number_of_queries_per_week>] [--nw <number_of_weeks>] [--nkw <number_of_keywords>] [--tpr <true_positive_rate>] [--fpr <false_positive_rate>] [--dataset <dataset>] [--defense <defense_mechanism>]
 ```
