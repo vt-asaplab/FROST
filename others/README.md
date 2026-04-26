@@ -1,5 +1,9 @@
-# OSSE 
-To evaluate the metrics of keyword search for OSSE, go to the **OSSE/code** directory and execute:
+# OSSE
+- Installation:
+```
+pip3 install 
+```
+- To evaluate the metrics of keyword search for OSSE, go to the **OSSE/code** directory and execute:
 
 ```
 python3 dp_sse_bench.py [-n <number_of_documents>] [-t <true_positive_rate>] [-f <false_positive_rate>]
