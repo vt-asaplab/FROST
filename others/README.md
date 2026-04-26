@@ -1,7 +1,5 @@
 # OSSE
-- Installation:
-
-See **OSSE/README.md** 
+- Installation: see **OSSE/README.md** 
 
 - To evaluate the metrics of keyword search for OSSE, go to the **OSSE/code** directory and execute:
 
