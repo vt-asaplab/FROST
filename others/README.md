@@ -13,3 +13,7 @@ python3 dp_sse_bench.py
 ```
 
 By default, it starts the process with default parameters number_of_documents = 1024, true_positive_rate = 0.95 and false_positive_rate = 0.1. 
+
+# CLRZ
+
+Follow either **APOSSE** or **Clusion** 
