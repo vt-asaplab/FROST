@@ -2,7 +2,7 @@
 
 Follow the build instructions below, then execute:
 
-run `export CLASSPATH=$CLASSPATH:/Users/$USER/CLRZ/target:/Users/$USER/CLRZ/target/test-classes:/Users/$USER/CLRZ/target/classes:/Users/$USER/CLRZ/target/Clusion-1.0-SNAPSHOT-jar-with-dependencies.jar`
+run `export CLASSPATH=$CLASSPATH:/Users/$USER/Clusion/target:/Users/$USER/Clusion/target/test-classes:/Users/$USER/Clusion/target/classes:/Users/$USER/Clusion/target/Clusion-1.0-SNAPSHOT-jar-with-dependencies.jar`
 
 run `export JAVA_HOME=/opt/homebrew/Cellar/openjdk/25.0.1`
 
