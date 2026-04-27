@@ -1,4 +1,4 @@
-## To evaluate the keyword search of CLRZ: 
+<!-- ## To evaluate the keyword search of CLRZ: 
 
 Follow the build instructions below, then execute:
 
@@ -7,6 +7,8 @@ run `export CLASSPATH=$CLASSPATH:/Users/$USER/CLRZ/target:/Users/$USER/CLRZ/targ
 run `export JAVA_HOME=/opt/homebrew/Cellar/openjdk/25.0.1`
 
 run `java -Xmx32g org.crypto.sse.TestLocalRR2Lev`
+
+-->
 
 It outputs the keyword search latency (in nanosecond) and bandwidth cost (in byte).
 
