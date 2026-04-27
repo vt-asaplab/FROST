@@ -8,9 +8,9 @@ run `export JAVA_HOME=/opt/homebrew/Cellar/openjdk/25.0.1`
 
 run `java -Xmx32g org.crypto.sse.TestLocalRR2Lev`
 
--->
-
 It outputs the keyword search latency (in nanosecond) and bandwidth cost (in byte).
+
+-->
 
 # The Clusion Library
 
