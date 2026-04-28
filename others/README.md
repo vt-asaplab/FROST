@@ -19,7 +19,7 @@ By default, it starts the process with default parameters number_of_documents = 
 
 - Installation: see **Clusion/README.md** 
 
-- To evaluate the keyword search metrics for CLRZ, navigate to the directory **CLRZ** and run the following command:
+- To evaluate the keyword search metrics for CLRZ, navigate to the directory **Clusion** and run the following command:
 
 ```
 java -Xmx32g org.crypto.sse.TestLocalRR2Lev [-d <path_to_dataset_directory>] [-n <number_of_documents>] [-t <true_positive_rate>] [-f <false_positive_rate>]
