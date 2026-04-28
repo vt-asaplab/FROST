@@ -30,24 +30,60 @@ public class TestLocalRR2Lev {
 
 	public static void main(String[] args) throws Exception {
 
+		double tpr = 0.95;
+		double fpr = 0.1;
+		int n = 1024;
+		String d = "./maildir";
+
+		for (int i = 0; i < args.length; i++) {
+			switch (args[i]) {
+				case "-t":
+					if (i + 1 < args.length) {
+						tpr = Double.parseDouble(args[++i]);
+					}
+					break;
+				case "-f":
+					if (i + 1 < args.length) {
+						fpr = Double.parseDouble(args[++i]);
+					}
+					break;
+				case "-n":
+					if (i + 1 < args.length) {
+						n = Integer.parseInt(args[++i]);
+					}
+					break;
+				case "-d":
+                	if (i + 1 < args.length) {
+                    	d = args[++i];
+                	}
+                	break;
+				default:
+					System.out.println("Warning: Unknown argument " + args[i]);
+			}
+		}
+		
 		if (Security.getProvider(BouncyCastleProvider.PROVIDER_NAME) == null) {
 		    Security.addProvider(new BouncyCastleProvider());
 		}
 
 		BufferedReader keyRead = new BufferedReader(new InputStreamReader(System.in));
 
-		System.out.println("Enter your password :");
+		// System.out.println("Enter your password :");
 
-		String pass = keyRead.readLine();
+		// String pass = keyRead.readLine();
 
+		String pass = "123";
+		
 		List<byte[]> listSK = IEX2Lev.keyGen(256, pass, "salt/salt", 100000);
 
-		System.out.println("Enter the relative path name of the folder that contains the files to make searchable");
+		// System.out.println("Enter the relative path name of the folder that contains the files to make searchable");
 
-		String pathName = keyRead.readLine();
+		// String pathName = keyRead.readLine();
+
+		String pathName = d;
 
 		ArrayList<File> listOfFile = new ArrayList<File>();
-		TextProc.listf(pathName, listOfFile);
+		TextProc.listf(pathName, listOfFile, n);
 
 		TextProc.TextProc(false, pathName);
 
@@ -78,9 +114,9 @@ public class TestLocalRR2Lev {
 
 			System.out.println("Execution time: " + estimatedTime);
 
-			long bw = result.size() * 4 + 16;
+			double bw = (result.size() * 4 * tpr + n * fpr + 16) / 1024.0;
 			
-			System.out.println("Bandwidth cost: " + bw + " B");
+			System.out.println("Bandwidth cost: " + bw + " KB");
 		}
 	}
 }
