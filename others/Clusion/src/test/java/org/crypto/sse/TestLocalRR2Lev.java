@@ -112,7 +112,7 @@ public class TestLocalRR2Lev {
 			
 			long estimatedTime = System.nanoTime() - startTime;
 
-			System.out.println("Execution time: " + estimatedTime);
+			System.out.println("Execution time: " + estimatedTime + " ns");
 
 			double bw = (result.size() * tpr * Integer.BYTES + n * fpr * Integer.BYTES + 16) / 1024.0;
 			
