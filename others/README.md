@@ -27,7 +27,7 @@ java -Xmx32g org.crypto.sse.TestLocalRR2Lev [-d <path_to_dataset_directory>] [-n
 
 For example:
 ```
-python3 dp_sse_bench.py 
+java -Xmx32g org.crypto.sse.TestLocalRR2Lev -d ./maildir 
 ```
 
 By default, it starts the process with default parameters number_of_documents = 1024, true_positive_rate = 0.95 and false_positive_rate = 0.1. 
