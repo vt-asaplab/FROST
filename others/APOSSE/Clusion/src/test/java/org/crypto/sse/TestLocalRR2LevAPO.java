@@ -65,7 +65,7 @@ public class TestLocalRR2LevAPO {
 		// accordingly to have better search performance
 		int bigBlock = 1000;
 		int smallBlock = 100;
-		int dataSize = 2000000;
+		int dataSize = 10000;
 
 		// Construction of the global multi-map
 		System.out.println("\nBeginning of Encrypted Multi-map creation \n");
