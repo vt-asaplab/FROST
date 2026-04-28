@@ -79,6 +79,44 @@ public class TextProc {
 
 	}
 
+	public static void TextProc(boolean flag, String pwd, int n)
+			throws IOException, InvalidKeyException, InvalidAlgorithmParameterException, NoSuchAlgorithmException,
+			NoSuchProviderException, NoSuchPaddingException, InvalidKeySpecException {
+
+		int counter = 0;
+		ArrayList<File> listOfFile = new ArrayList<File>();
+
+		// ***********************************************************************************************//
+
+		///////////////////// TEXT PARSING and Inverted Index CREATION
+		///////////////////// /////////////////////////////
+
+		// ***********************************************************************************************//
+
+		System.out.println("\n Beginning of text extraction \n");
+
+		listf(pwd, listOfFile, n);
+		try {
+			TextExtractPar.extractTextPar(listOfFile);
+		} catch (InterruptedException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} catch (ExecutionException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+
+		// ***********************************************************************************************//
+
+		///////////////////// Partitioning /////////////////////////////
+
+		// ***********************************************************************************************//
+		if (flag) {
+			Multimap<Integer, String> partitions = Partition.partitioning(TextExtractPar.lp1);
+		}
+
+	}
+	
 	/*
 	 * This method gets all files from a directory. These files, will be
 	 * processed later on to get all the keywords and create an inverted index
