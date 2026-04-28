@@ -33,6 +33,7 @@ import java.security.NoSuchProviderException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
+import java.util.Collections;
 
 public class TextProc {
 
@@ -97,4 +98,25 @@ public class TextProc {
 		}
 	}
 
+	public static void listf(String directoryName, ArrayList<File> files, int n) {
+		File directory = new File(directoryName);
+
+		File[] fList = directory.listFiles();
+		if (fList == null) return;
+
+		for (File file : fList) {
+			if (file.isFile()) {
+				files.add(file);
+			} else if (file.isDirectory()) {
+				listf(file.getAbsolutePath(), files, n);
+			}
+		}
+
+		if (directoryName.equals(new File(directoryName).getAbsolutePath())) {
+			Collections.shuffle(files);
+			if (files.size() > n) {
+				files.subList(n, files.size()).clear();
+			}
+		}
+	}
 }
