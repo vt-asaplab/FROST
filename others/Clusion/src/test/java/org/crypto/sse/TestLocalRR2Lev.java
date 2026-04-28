@@ -89,9 +89,9 @@ public class TestLocalRR2Lev {
 
 		// The two parameters depend on the size of the dataset. Change
 		// accordingly to have better search performance
-		int bigBlock = 1000;
+		int bigBlock = 4000;
 		int smallBlock = 100;
-		int dataSize = 20000000;
+		int dataSize = 50000000;
 		
 		// Construction of the global multi-map
 		System.out.println("\nBeginning of Encrypted Multi-map creation \n");
