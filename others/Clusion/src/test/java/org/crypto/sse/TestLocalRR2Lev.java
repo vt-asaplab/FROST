@@ -85,7 +85,7 @@ public class TestLocalRR2Lev {
 		ArrayList<File> listOfFile = new ArrayList<File>();
 		TextProc.listf(pathName, listOfFile, n);
 
-		TextProc.TextProc(false, pathName);
+		TextProc.TextProc(false, pathName, n);
 
 		// The two parameters depend on the size of the dataset. Change
 		// accordingly to have better search performance
