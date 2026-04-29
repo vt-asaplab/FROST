@@ -76,7 +76,12 @@ public class APOModules {
 		Random rng = new Random();
 
 		List<String> listOfKeyword = new ArrayList<String>(keywordLists.keySet());
+		int total = listOfKeyword.size();
+        int count = 0;
+		
 		for (String keyword : listOfKeyword) {
+			count++;
+            System.out.println("Progress: " + (count * 100.0) / total + "%");
 			for (File file : listOfFile) {
 				if (keywordLists.get(keyword).contains(file.getName())) {
 					for (int i = 0; i < m; i++) {
