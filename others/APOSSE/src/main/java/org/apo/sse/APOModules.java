@@ -31,8 +31,8 @@ import java.nio.ByteBuffer;
 import java.util.*;
 
 public class APOModules {
-    private static int m = 8;
-    private static int k = 2;
+    private static int m = 1;
+    private static int k = 1;
     private static double p = 0.895328521728516;
 	private static double q = 0.0210561086316476;
     public static final int BYTES_IN_INT = 4;
