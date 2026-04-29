@@ -22,12 +22,12 @@ By default, it starts the process with default parameters number_of_documents = 
 - To evaluate the keyword search metrics for CLRZ, run the following command:
 
 ```
-java -Xmx32g org.crypto.sse.TestLocalRR2Lev [-d <path_to_dataset_directory>] [-n <number_of_documents>] [-t <true_positive_rate>] [-f <false_positive_rate>]
+java -Xmx64g org.crypto.sse.TestLocalRR2Lev [-d <path_to_dataset_directory>] [-n <number_of_documents>] [-t <true_positive_rate>] [-f <false_positive_rate>]
 ```
 
 For example:
 ```
-java -Xmx32g org.crypto.sse.TestLocalRR2Lev -d ./maildir 
+java -Xmx64g org.crypto.sse.TestLocalRR2Lev -d ./maildir 
 ```
 
 By default, it starts the process with default parameters number_of_documents = 1024, true_positive_rate = 0.95 and false_positive_rate = 0.1. 
