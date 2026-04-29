@@ -33,43 +33,83 @@ import org.apache.commons.io.FileUtils;
 public class TestLocalRR2LevAPO {
 
 	public static void main(String[] args) throws Exception {
-	
+		
+		double tpr = 0.95;
+		double fpr = 0.1;
+		int n = 1024;
+		String d = "./maildir";
+
+		for (int i = 0; i < args.length; i++) {
+			switch (args[i]) {
+				case "-t":
+					if (i + 1 < args.length) {
+						tpr = Double.parseDouble(args[++i]);
+					}
+					break;
+				case "-f":
+					if (i + 1 < args.length) {
+						fpr = Double.parseDouble(args[++i]);
+					}
+					break;
+				case "-n":
+					if (i + 1 < args.length) {
+						n = Integer.parseInt(args[++i]);
+					}
+					break;
+				case "-d":
+                	if (i + 1 < args.length) {
+                    	d = args[++i];
+                	}
+                	break;
+				default:
+					System.out.println("Warning: Unknown argument " + args[i]);
+			}
+		}
+
 		BufferedReader keyRead = new BufferedReader(new InputStreamReader(System.in));
 
-		System.out.println("Enter your password :");
+		// System.out.println("Enter your password :");
 
-		String pass = keyRead.readLine();
+		// String pass = keyRead.readLine();
 
+		String pass = "123";
+		
 		List<byte[]> listSK = IEX2Lev.keyGen(256, pass, "salt/salt", 100000);
 
-		System.out.println("Enter the relative path name of the folder that contains the files to make searchable");
+		// System.out.println("Enter the relative path name of the folder that contains the files to make searchable");
 
-		String pathName = keyRead.readLine();
+		// String pathName = keyRead.readLine();
 
-		System.out.println("Enter the relative path name of the folder that stores the file shards");
+		String pathName = d;
 
-		String shardsPathName = keyRead.readLine();
+		// System.out.println("Enter the relative path name of the folder that stores the file shards");
 
-		System.out.println("Enter the relative path name of the folder that stores the search results");
+		// String shardsPathName = keyRead.readLine();
 
-		String queryPathName = keyRead.readLine();
+		String shardsPathName = "./shards";
 
-		ArrayList<File> listOfFile = new ArrayList<File>(32768);
-		TextProc.listf(pathName, listOfFile);
+		// System.out.println("Enter the relative path name of the folder that stores the search results");
+
+		// String queryPathName = keyRead.readLine();
+
+		String queryPathName = "./results";
+
+		ArrayList<File> listOfFile = new ArrayList<File>();
+		TextProc.listf(pathName, listOfFile, n);
 		
-		TextProc.TextProc(false, pathName);
+		TextProc.TextProc(false, pathName, n);
 
 		// Multimap<String, String> topk = APOModules.getTopCommonKeywods(TextExtractPar.lp1, 500);
 
 		// The two parameters depend on the size of the dataset. Change
 		// accordingly to have better search performance
-		int bigBlock = 1000;
-		int smallBlock = 100;
-		int dataSize = 10000;
+		int bigBlock = 16384;
+		int smallBlock = 128;
+		int dataSize = 50000000;
 
 		// Construction of the global multi-map
 		System.out.println("\nBeginning of Encrypted Multi-map creation \n");
-
+		APOModules.setParameters(tpr, fpr);
 		RR2Lev twolev = RR2Lev.constructEMMParGMM(listSK.get(0), APOModules.obfuscateKeywordLists(TextExtractPar.lp1, listOfFile), bigBlock, smallBlock, dataSize);
 
 		FileUtils.cleanDirectory(new File(shardsPathName));
@@ -77,14 +117,27 @@ public class TestLocalRR2LevAPO {
 		APOModules.erasureCodeEncoding(listOfFile, pathName, shardsPathName);
 		
 		while (true) {
-
 			System.out.println("Enter the keyword to search for:");
-			String keyword = keyRead.readLine();
-			byte[][] token = RR2Lev.token(listSK.get(0), keyword);
 			
-            FileUtils.cleanDirectory(new File(queryPathName));
-			System.out.println("Final Result: " + APOModules.erasureCodeDecoding(twolev.query(token, twolev.getDictionary(), twolev.getArray()), shardsPathName, queryPathName));
-		}
+			String keyword = keyRead.readLine();
 
+			byte[][] token = RR2Lev.token(listSK.get(0), keyword);
+
+			long startTime = System.nanoTime();
+
+            FileUtils.cleanDirectory(new File(queryPathName));
+
+			List<String> result = APOModules.erasureCodeDecoding(twolev.query(token, twolev.getDictionary(), twolev.getArray()), shardsPathName, queryPathName);
+			
+			System.out.println("Final Result: " + result);
+			
+			long estimatedTime = System.nanoTime() - startTime;
+
+			System.out.println("Execution time: " + estimatedTime + " ns");
+
+			double bw = (result.size() * Integer.BYTES + 16) / 1024.0;
+
+			System.out.println("Bandwidth cost: " + bw + " KB");
+		}
 	}
 }
