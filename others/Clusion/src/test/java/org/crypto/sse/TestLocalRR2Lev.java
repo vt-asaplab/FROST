@@ -89,8 +89,8 @@ public class TestLocalRR2Lev {
 
 		// The two parameters depend on the size of the dataset. Change
 		// accordingly to have better search performance
-		int bigBlock = 4000;
-		int smallBlock = 100;
+		int bigBlock = 16384;
+		int smallBlock = 128;
 		int dataSize = 50000000;
 		
 		// Construction of the global multi-map
