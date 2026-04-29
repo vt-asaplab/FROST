@@ -42,9 +42,13 @@ public class APOModules {
 		APOModules.k = k;
 		APOModules.p = p;
 		APOModules.q = q;
-
 	}
 
+	public static void setParameters(double p, double q) {
+		APOModules.p = p;
+		APOModules.q = q;
+	}
+	
 	public static Multimap<String, String> getTopCommonKeywods(Multimap<String, String> originalKeywordLists, int k) {
         Multimap<String, String> topCommonKeywords = ArrayListMultimap.create();
 	    Map<String, Integer> map = new TreeMap<String, Integer>();
