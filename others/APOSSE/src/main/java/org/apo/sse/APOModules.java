@@ -81,7 +81,8 @@ public class APOModules {
 		
 		for (String keyword : listOfKeyword) {
 			count++;
-            System.out.println("Progress: " + (count * 100.0) / total + "%");
+            System.out.printf("Progress: %.2f%%%n", (count * 100.0) / total);
+			
 			for (File file : listOfFile) {
 				if (keywordLists.get(keyword).contains(file.getName())) {
 					for (int i = 0; i < m; i++) {
