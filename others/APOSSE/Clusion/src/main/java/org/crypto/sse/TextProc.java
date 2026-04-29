@@ -33,6 +33,7 @@ import java.security.NoSuchProviderException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
+import java.util.Collections;
 
 public class TextProc {
 
@@ -78,6 +79,44 @@ public class TextProc {
 
 	}
 
+	public static void TextProc(boolean flag, String pwd, int n)
+			throws IOException, InvalidKeyException, InvalidAlgorithmParameterException, NoSuchAlgorithmException,
+			NoSuchProviderException, NoSuchPaddingException, InvalidKeySpecException {
+
+		int counter = 0;
+		ArrayList<File> listOfFile = new ArrayList<File>();
+
+		// ***********************************************************************************************//
+
+		///////////////////// TEXT PARSING and Inverted Index CREATION
+		///////////////////// /////////////////////////////
+
+		// ***********************************************************************************************//
+
+		System.out.println("\n Beginning of text extraction \n");
+		
+		listf(pwd, listOfFile, n);
+		try {
+			TextExtractPar.extractTextPar(listOfFile);
+		} catch (InterruptedException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} catch (ExecutionException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+
+		// ***********************************************************************************************//
+
+		///////////////////// Partitioning /////////////////////////////
+
+		// ***********************************************************************************************//
+		if (flag) {
+			Multimap<Integer, String> partitions = Partition.partitioning(TextExtractPar.lp1);
+		}
+
+	}
+	
 	/*
 	 * This method gets all files from a directory. These files, will be
 	 * processed later on to get all the keywords and create an inverted index
@@ -97,4 +136,25 @@ public class TextProc {
 		}
 	}
 
+	public static void listf(String directoryName, ArrayList<File> files, int n) {
+		File directory = new File(directoryName);
+
+		File[] fList = directory.listFiles();
+		if (fList == null) return;
+
+		for (File file : fList) {
+			if (file.isFile()) {
+				files.add(file);
+			} else if (file.isDirectory()) {
+				listf(file.getAbsolutePath(), files, n);
+			}
+		}
+
+		if (directoryName.equals(new File(directoryName).getAbsolutePath())) {
+			Collections.shuffle(files);
+			if (files.size() > n) {
+				files.subList(n, files.size()).clear();
+			}
+		}
+	}
 }
