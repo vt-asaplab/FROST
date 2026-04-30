@@ -119,9 +119,9 @@ public class APOModules {
 			
             System.out.printf("Progress: %.2f%% of keywords %n", (count * 100.0) / total);
 
+			if (keyword.length() < 4 || keyword.length() > 20) continue;
+			
 			if (stopwords.contains(keyword)) continue;
-
-            if (keyword.length() < 4 || keyword.length() > 20) continue;
 
             if (!keyword.matches("[a-zA-Z]+")) continue;
 			
