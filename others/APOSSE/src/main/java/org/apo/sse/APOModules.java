@@ -106,6 +106,67 @@ public class APOModules {
         return topCommonKeywords;
     }
 
+	/*
+	public static Multimap<String, String> obfuscateKeywordLists(
+        Multimap<String, String> keywordLists,
+        ArrayList<File> listOfFile)
+        throws InterruptedException, ExecutionException {
+
+        List<String> listOfKeyword = keywordLists.keySet().stream()
+                .filter(keyword -> keyword.length() >= 4 && keyword.length() <= 20)
+                .filter(keyword -> !stopwords.contains(keyword.toLowerCase()))
+                .filter(keyword -> keyword.matches("[a-zA-Z]+"))
+                .collect(Collectors.toList());
+        
+        AtomicInteger count = new AtomicInteger(0);
+        long total = listOfKeyword.size();
+
+        int numThreads = Runtime.getRuntime().availableProcessors();
+        ExecutorService pool = Executors.newFixedThreadPool(numThreads);
+
+        List<Future<Multimap<String, String>>> futures = new ArrayList<>();
+
+        for (String keyword : listOfKeyword) {
+            futures.add(pool.submit(() -> {
+                long c = count.incrementAndGet();
+                if (c % 100 == 0) {
+                    System.out.printf("Progress: %.2f%% of keywords %n",
+                            (c * 100.0) / total);
+                }
+
+                Multimap<String, String> localMap = HashMultimap.create();
+                ThreadLocalRandom rng = ThreadLocalRandom.current();
+
+                for (File file : listOfFile) {
+                    if (keywordLists.get(keyword).contains(file.getName())) {
+                        for (int i = 0; i < m; i++) {
+                            if (rng.nextDouble() < p) {
+                                localMap.put(keyword.toLowerCase(), file.getName() + "." + i);
+                            }
+                        }
+                    } else {
+                        for (int i = 0; i < m; i++) {
+                            if (rng.nextDouble() < q) {
+                                localMap.put(keyword.toLowerCase(), file.getName() + "." + i);
+                            }
+                        }
+                    }
+                }
+                return localMap;
+            }));
+        }
+
+        // Collect results
+        Multimap<String, String> result = HashMultimap.create();
+        for (Future<Multimap<String, String>> future : futures) {
+            result.putAll(future.get()); // waits for each task
+        }
+
+        pool.shutdown();
+        return result;
+    }
+	*/
+	
 	public static Multimap<String, String> obfuscateKeywordLists(Multimap<String, String> keywordLists, ArrayList<File> listOfFile) {
 		Multimap<String, String> obfuscatedKeywordLists = HashMultimap.create();
 		Random rng = new Random();
