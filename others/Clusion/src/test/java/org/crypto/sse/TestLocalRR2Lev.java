@@ -114,7 +114,14 @@ public class TestLocalRR2Lev {
 
 			System.out.println("Execution time: " + estimatedTime + " ns");
 
-			double bw = (result.size() * tpr * Integer.BYTES + n * fpr * Integer.BYTES + 16) / 1024.0;
+			int querySize = 0;
+			for (byte[] arr : token) {
+				if (arr != null) {
+					querySize += arr.length;
+				}
+			}
+			
+			double bw = (result.size() * tpr * Integer.BYTES + n * fpr * Integer.BYTES + querySize) / 1024.0;
 			
 			System.out.println("Bandwidth cost: " + bw + " KB");
 		}
