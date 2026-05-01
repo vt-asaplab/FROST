@@ -121,7 +121,7 @@ public class APOModules {
 
 			if (keyword.length() < 4 || keyword.length() > 20) continue;
 			
-			if (stopwords.contains(keyword)) continue;
+			if (stopwords.contains(keyword.toLowerCase())) continue;
 
             if (!keyword.matches("[a-zA-Z]+")) continue;
 			
@@ -129,13 +129,13 @@ public class APOModules {
 				if (keywordLists.get(keyword).contains(file.getName())) {
 					for (int i = 0; i < m; i++) {
 						if (rng.nextDouble() < p) {
-							obfuscatedKeywordLists.put(keyword, file.getName() + "." + i);
+							obfuscatedKeywordLists.put(keyword.toLowerCase(), file.getName() + "." + i);
 						}
 					}
 				} else {
 					for (int i = 0; i < m; i++) {
 						if (rng.nextDouble() < q) {
-							obfuscatedKeywordLists.put(keyword, file.getName() + "." + i);
+							obfuscatedKeywordLists.put(keyword.toLowerCase(), file.getName() + "." + i);
 						}
 					}
 				}
