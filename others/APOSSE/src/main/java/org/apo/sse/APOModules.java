@@ -29,6 +29,12 @@ import com.google.common.collect.Multimap;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class APOModules {
     private static int m = 1;
@@ -117,6 +123,8 @@ public class APOModules {
                 .filter(keyword -> !stopwords.contains(keyword.toLowerCase()))
                 .filter(keyword -> keyword.matches("[a-zA-Z]+"))
                 .collect(Collectors.toList());
+        // Collections.shuffle(listOfKeyword, new Random());
+        // listOfKeyword = listOfKeyword.subList(0, Math.min(65536, listOfKeyword.size()));
         
         AtomicInteger count = new AtomicInteger(0);
         long total = listOfKeyword.size();
