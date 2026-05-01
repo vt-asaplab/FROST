@@ -110,20 +110,19 @@ public class APOModules {
 		Multimap<String, String> obfuscatedKeywordLists = HashMultimap.create();
 		Random rng = new Random();
 
-		List<String> listOfKeyword = new ArrayList<String>(keywordLists.keySet());
+		// List<String> listOfKeyword = new ArrayList<String>(keywordLists.keySet());
+		List<String> listOfKeyword = keywordLists.keySet().stream()
+                .filter(keyword -> keyword.length() >= 4 && keyword.length() <= 20)
+                .filter(keyword -> !stopwords.contains(keyword.toLowerCase()))
+                .filter(keyword -> keyword.matches("[a-zA-Z]+"))
+                .collect(Collectors.toList());
+		
 		int total = listOfKeyword.size();
         int count = 0;
 		
 		for (String keyword : listOfKeyword) {
 			count++;
-			
             System.out.printf("Progress: %.2f%% of keywords %n", (count * 100.0) / total);
-
-			if (keyword.length() < 4 || keyword.length() > 20) continue;
-			
-			if (stopwords.contains(keyword.toLowerCase())) continue;
-
-            if (!keyword.matches("[a-zA-Z]+")) continue;
 			
 			for (File file : listOfFile) {
 				if (keywordLists.get(keyword).contains(file.getName())) {
