@@ -30,7 +30,7 @@ Go to the folder **frost** then execute:
 ``` 
 make -j8
 ```
-This is going to create an executable file named ``main`` in the **frost** folder.
+This is going to create an executable file named ``main`` in the folder **frost**.
 
 ## Testing
 
