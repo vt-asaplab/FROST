@@ -1,6 +1,6 @@
 # Efficient Single-Round Obfuscation of Search and Result Patterns in Searchable Encryption
 
-This is our full implementation for our FROST.
+This is the full implementation for our FROST.
 
 **WARNING**: This is an academic proof-of-concept prototype and has not received careful code review. This implementation is NOT ready for production use.
 
