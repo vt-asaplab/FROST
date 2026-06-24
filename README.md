@@ -18,7 +18,7 @@ You can run the script file **auto_setup.sh** (user needs root permission) to au
 # Dataset
 
 1. Download Enron email dataset at: https://www.cs.cmu.edu/~enron/, then extract to obtain the folder **maildir**.
-2. Download Wiki dataset at [Wikipedia database backup dump](https://dumps.wikimedia.org/): https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2, then use [WikiExtractor](https://github.com/attardi/wikiextractor) to extract articles in JSON format (with Python versions 3.8–3.10 to avoid errors due to compatibility issues):
+2. Download Wiki dataset at [Wikipedia database backup dump](https://dumps.wikimedia.org/): https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2, then use [WikiExtractor](https://github.com/attardi/wikiextractor) to extract articles in JSON format (with Python version 3.8–3.10 to avoid errors due to compatibility issues):
 ```
 python3 -m wikiextractor.WikiExtractor enwiki-latest-pages-articles.xml.bz2 --json -o extracted
 ```
