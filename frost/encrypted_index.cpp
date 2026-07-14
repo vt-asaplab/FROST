@@ -289,7 +289,7 @@ void search_keyword(const std::string &keyword, double tpr, double fpr) {
             / 1048576.0 << " MB "<< std::endl;
 
 #ifdef ENABLE_DEBUGGING
-    std::cout << "Grouth truth: ";
+    std::cout << "Ground truth: ";
     int correct_count = 0;
     for(int i = 0; i < max_docs; ++i) {
         if(test[i].count(keyword) > 0) {
