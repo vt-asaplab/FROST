@@ -48,3 +48,18 @@ For example:
 By default, it starts the process with default parameters Bloom_filter_size = 2912 and number_of_documents = 1024. 
 
 - Wait for the initialization process to finish, then enter a keyword to perform a search (e.g., "security" without quotes). When keyword search is complete, it outputs processing latency and bandwidth overhead of keyword search for the true positive rate TPR = 0.95 w.r.t various false positive rates FPR = {0.025, 0.05, 0.1, 0.15, 0.2}. 
+
+## Citing
+
+If the code is found useful, we would be appreciated if our paper can be cited with the following bibtex format: 
+
+```
+@misc{le2026frost,
+      author = {Tung Le and Thang Hoang},
+      title = {Efficient Single-Round Obfuscation of Search and Result Patterns in Searchable Encryption},
+      howpublished = {Cryptology {ePrint} Archive, Paper 2026/1471},
+      year = {2026},
+      doi = {10.1145/3830454.3832727},
+      url = {https://eprint.iacr.org/2026/1471}
+}
+```
