@@ -54,3 +54,15 @@ pip3 install numpy scipy matplotlib scikit-learn tqdm pytrends nltk
 
 # Install libgsl for building graphm library
 sudo apt-get install libgsl-dev
+
+# For OSSE
+wget https://crypto.stanford.edu/pbc/files/pbc-0.5.14.tar.gz
+tar -xvf pbc-0.5.14.tar.gz
+cd pbc-0.5.14/
+./configure CPPFLAGS="-I$PREFIX/include" LDFLAGS="-L$PREFIX/lib" --prefix="$PREFIX"
+make -j8
+make install 
+cd ..
+export CPPFLAGS="-I$PREFIX/include" 
+export LDFLAGS="-L$PREFIX/lib/"
+pip3 install charm-crypto-framework
