@@ -40,7 +40,7 @@ cd ..
 
 # Set library path
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PREFIX/lib/
-echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$PREFIX/lib" >> /home/\$USER/.bashrc
+echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:\$PREFIX/lib" >> /home/$USER/.bashrc
 source /home/$USER/.bashrc
 
 # Install Python libraries
