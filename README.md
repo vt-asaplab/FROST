@@ -63,3 +63,6 @@ If the code is found useful, we would be appreciated if our paper can be cited w
       url = {https://eprint.iacr.org/2026/1471}
 }
 ```
+
+# Further Information
+For any inquiries, bugs, and assistance on building and running the code, please contact me at [tungle@vt.edu](mailto:tungle@vt.edu?Subject=[FROST]%20Inquiry).
