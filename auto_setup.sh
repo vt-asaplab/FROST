@@ -41,6 +41,7 @@ cd ..
 # Set library path
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PREFIX/lib/
 echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:$PREFIX/lib" >> /home/$USER/.bashrc
+source /home/$USER/.bashrc
 
 # Install Python libraries
 sudo apt-get install python3-pip
@@ -60,7 +61,7 @@ wget https://crypto.stanford.edu/pbc/files/pbc-0.5.14.tar.gz
 tar -xvf pbc-0.5.14.tar.gz
 cd pbc-0.5.14/
 ./configure CPPFLAGS="-I$PREFIX/include" LDFLAGS="-L$PREFIX/lib" --prefix="$PREFIX"
-make -j8
+make -j$(nproc)
 make install 
 cd ..
 export CPPFLAGS="-I$PREFIX/include" 
