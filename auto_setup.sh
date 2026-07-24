@@ -55,7 +55,7 @@ pip3 install numpy scipy matplotlib scikit-learn tqdm pytrends nltk
 # Install libgsl for building graphm library
 sudo apt-get install libgsl-dev
 
-# For OSSE
+# Install Charm-Crypto for OSSE
 wget https://crypto.stanford.edu/pbc/files/pbc-0.5.14.tar.gz
 tar -xvf pbc-0.5.14.tar.gz
 cd pbc-0.5.14/
