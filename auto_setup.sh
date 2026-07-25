@@ -36,7 +36,7 @@ cd ntl-11.6.0/src/
 ./configure DEF_PREFIX=$PREFIX GMP_PREFIX=$PREFIX
 make -j$(nproc)
 make install
-cd ..
+cd ../..
 
 # Set library path
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PREFIX/lib/
