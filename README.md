@@ -14,7 +14,10 @@ You can run the script file **auto_setup.sh** (user needs root permission) to au
 ```
 ./auto_setup.sh
 ```
-
+Followed by:
+ ```
+source ~/.bashrc
+```
 # Dataset
 
 1. Download Enron email dataset at: https://www.cs.cmu.edu/~enron/, then extract to obtain the folder **maildir**.
