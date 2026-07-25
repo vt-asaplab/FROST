@@ -10,7 +10,7 @@ sudo apt-get install -y build-essential
 sudo apt-get install -y libzmq3-dev
 
 # Install libssl, libtool, m4, etc.
-sudo apt-get install -y autogen automake ca-certificates cmake git libboost-dev libboost-thread-dev libsodium-dev libssl-dev libtool m4 texinfo yasm flex bison
+sudo apt-get install -y autogen automake ca-certificates cmake git libboost-dev libboost-thread-dev libsodium-dev libssl-dev libtool m4 texinfo yasm flex bison maven
 
 PREFIX="/home/$USER/FROST"
 
@@ -72,5 +72,9 @@ pip3 install charm-crypto-framework
 wget https://download.java.net/java/GA/jdk25.0.1/2fbf10d8c78e40bd87641c434705079d/8/GPL/openjdk-25.0.1_linux-x64_bin.tar.gz
 tar -xvf openjdk-25.0.1_linux-x64_bin.tar.gz
 echo "export CLASSPATH=\$CLASSPATH:$PREFIX/others/Clusion/target:$PREFIX/others/Clusion/target/test-classes:$PREFIX/others/Clusion/target/classes:$PREFIX/others/Clusion/target/Clusion-1.0-SNAPSHOT-jar-with-dependencies.jar" >> /home/$USER/.bashrc
-echo "export JAVA_HOME=$PREFIX/openjdk/25.0.1" >> /home/$USER/.bashrc
+echo "export JAVA_HOME=$PREFIX/jdk-25.0.1" >> /home/$USER/.bashrc
+echo "export PATH=/home/$USER/FROST/jdk-25.0.1/bin:$PATH"
 source /home/$USER/.bashrc 
+cd others/Clusion
+mvn clean install
+cd ../..
