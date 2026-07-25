@@ -77,7 +77,7 @@ wget https://download.java.net/java/GA/jdk25.0.1/2fbf10d8c78e40bd87641c434705079
 tar -xvf openjdk-25.0.1_linux-x64_bin.tar.gz
 echo "export CLASSPATH=\$CLASSPATH:$PREFIX/others/Clusion/target:$PREFIX/others/Clusion/target/test-classes:$PREFIX/others/Clusion/target/classes:$PREFIX/others/Clusion/target/Clusion-1.0-SNAPSHOT-jar-with-dependencies.jar" >> /home/$USER/.bashrc
 echo "export JAVA_HOME=$PREFIX/jdk-25.0.1" >> /home/$USER/.bashrc
-echo "export PATH=$PREFIX/jdk-25.0.1/bin:$PATH" >> /home/$USER/.bashrc
+echo "export PATH=$PREFIX/jdk-25.0.1/bin:\$PATH" >> /home/$USER/.bashrc
 source /home/$USER/.bashrc 
 cd others/Clusion
 mvn clean install
